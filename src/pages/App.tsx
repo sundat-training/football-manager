@@ -57,7 +57,7 @@ function App() {
         .then(b => b.json())
         .then(data => setTeams(data));
   
-      fetch(api+ "/games2")
+      fetch(api+ "/games")
         .then(b => b.json())
         .then(data => setGames(data));
 
