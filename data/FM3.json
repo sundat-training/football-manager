@@ -1,0 +1,465 @@
+{
+    "teams": [
+      {"id": 1, "name": "Germany", "country_code": "GER"},
+      {"id": 2, "name": "France", "country_code": "FRA"},
+      {"id": 3, "name": "Spain", "country_code": "ESP"},
+      {"id": 4, "name": "Italy", "country_code": "ITA"},
+      {"id": 5, "name": "Netherlands", "country_code": "NED"},
+      {"id": 6, "name": "Belgium", "country_code": "BEL"},
+      {"id": 7, "name": "Portugal", "country_code": "POR"},
+      {"id": 8, "name": "Croatia", "country_code": "CRO"},
+      {"id": 9, "name": "Switzerland", "country_code": "SUI"},
+      {"id": 10, "name": "Denmark", "country_code": "DEN"},
+      {"id": 11, "name": "Sweden", "country_code": "SWE"},
+      {"id": 12, "name": "Poland", "country_code": "POL"},
+      {"id": 13, "name": "Austria", "country_code": "AUT"},
+      {"id": 14, "name": "Czech Republic", "country_code": "CZE"},
+      {"id": 15, "name": "Ukraine", "country_code": "UKR"},
+      {"id": 16, "name": "Turkey", "country_code": "TUR"},
+      {"id": 17, "name": "Russia", "country_code": "RUS"},
+      {"id": 18, "name": "Greece", "country_code": "GRE"},
+      {"id": 19, "name": "Serbia", "country_code": "SRB"},
+      {"id": 20, "name": "Norway", "country_code": "NOR"},
+      {"id": 21, "name": "Finland", "country_code": "FIN"},
+      {"id": 22, "name": "Ireland", "country_code": "IRL"},
+      {"id": 23, "name": "Romania", "country_code": "ROU"},
+      {"id": 24, "name": "Hungary", "country_code": "HUN"}
+    ],
+    "games": [
+      {
+        "group": "A",
+        "datetime": "01.06. 16:00",
+        "team1": 1,
+        "team2": 2,
+        "status": "finished",
+        "score_team1": 3,
+        "score_team2": 2
+      },
+      {
+        "group": "A",
+        "datetime": "01.06. 21:00",
+        "team1": 3,
+        "team2": 4,
+        "status": "finished",
+        "score_team1": 1,
+        "score_team2": 1
+      },
+      {
+        "group": "A",
+        "datetime": "02.06. 16:00",
+        "team1": 1,
+        "team2": 3,
+        "status": "running",
+        "score_team1": 2,
+        "score_team2": 1
+      },
+      {
+        "group": "A",
+        "datetime": "02.06. 21:00",
+        "team1": 2,
+        "team2": 4,
+        "status": "pending",
+        "score_team1": null,
+        "score_team2": null
+      },
+      {
+        "group": "B",
+        "datetime": "03.06. 16:00",
+        "team1": 5,
+        "team2": 6,
+        "status": "finished",
+        "score_team1": 4,
+        "score_team2": 3
+      },
+      {
+        "group": "B",
+        "datetime": "03.06. 21:00",
+        "team1": 7,
+        "team2": 8,
+        "status": "finished",
+        "score_team1": 2,
+        "score_team2": 2
+      },
+      {
+        "group": "B",
+        "datetime": "04.06. 16:00",
+        "team1": 5,
+        "team2": 7,
+        "status": "running",
+        "score_team1": 1,
+        "score_team2": 0
+      },
+      {
+        "group": "B",
+        "datetime": "04.06. 21:00",
+        "team1": 6,
+        "team2": 8,
+        "status": "pending",
+        "score_team1": null,
+        "score_team2": null
+      },
+      {
+        "group": "C",
+        "datetime": "05.06. 16:00",
+        "team1": 9,
+        "team2": 10,
+        "status": "finished",
+        "score_team1": 2,
+        "score_team2": 3
+      },
+      {
+        "group": "C",
+        "datetime": "05.06. 21:00",
+        "team1": 11,
+        "team2": 12,
+        "status": "finished",
+        "score_team1": 0,
+        "score_team2": 1
+      },
+      {
+        "group": "C",
+        "datetime": "06.06. 16:00",
+        "team1": 9,
+        "team2": 11,
+        "status": "running",
+        "score_team1": 2,
+        "score_team2": 2
+      },
+      {
+        "group": "C",
+        "datetime": "06.06. 21:00",
+        "team1": 10,
+        "team2": 12,
+        "status": "pending",
+        "score_team1": null,
+        "score_team2": null
+      },
+      {
+        "group": "D",
+        "datetime": "07.06. 16:00",
+        "team1": 13,
+        "team2": 14,
+        "status": "finished",
+        "score_team1": 1,
+        "score_team2": 0
+      },
+      {
+        "group": "D",
+        "datetime": "07.06. 21:00",
+        "team1": 15,
+        "team2": 16,
+        "status": "finished",
+        "score_team1": 2,
+        "score_team2": 2
+      },
+      {
+        "group": "D",
+        "datetime": "08.06. 16:00",
+        "team1": 13,
+        "team2": 15,
+        "status": "running",
+        "score_team1": 0,
+        "score_team2": 1
+      },
+      {
+        "group": "D",
+        "datetime": "08.06. 21:00",
+        "team1": 14,
+        "team2": 16,
+        "status": "pending",
+        "score_team1": null,
+        "score_team2": null
+      },
+      {
+        "group": "E",
+        "datetime": "09.06. 16:00",
+        "team1": 17,
+        "team2": 18,
+        "status": "finished",
+        "score_team1": 1,
+        "score_team2": 1
+      },
+      {
+        "group": "E",
+        "datetime": "09.06. 21:00",
+        "team1": 19,
+        "team2": 20,
+        "status": "finished",
+        "score_team1": 3,
+        "score_team2": 1
+      },
+      {
+        "group": "E",
+        "datetime": "10.06. 16:00",
+        "team1": 17,
+        "team2": 19,
+        "status": "running",
+        "score_team1": 2,
+        "score_team2": 2
+      },
+      {
+        "group": "E",
+        "datetime": "10.06. 21:00",
+        "team1": 18,
+        "team2": 20,
+        "status": "pending",
+        "score_team1": null,
+        "score_team2": null
+      },
+      {
+        "group": "F",
+        "datetime": "11.06. 16:00",
+        "team1": 21,
+        "team2": 22,
+        "status": "finished",
+        "score_team1": 2,
+        "score_team2": 3
+      },
+      {
+        "group": "F",
+        "datetime": "11.06. 21:00",
+        "team1": 23,
+        "team2": 24,
+        "status": "finished",
+        "score_team1": 1,
+        "score_team2": 2
+      },
+      {
+        "group": "F",
+        "datetime": "12.06. 16:00",
+        "team1": 21,
+        "team2": 23,
+        "status": "running",
+        "score_team1": 1,
+        "score_team2": 0
+      },
+      {
+        "group": "F",
+        "datetime": "12.06. 21:00",
+        "team1": 22,
+        "team2": 24,
+        "status": "pending",
+        "score_team1": null,
+        "score_team2": null
+      }
+    ],
+"games2": [
+  {
+    "group": "A",
+    "datetime": "2024-06-01T16:00:00+02:00",
+    "team1": 1,
+    "team2": 2,
+    "status": "finished",
+    "score_team1": 3,
+    "score_team2": 2
+  },
+  {
+    "group": "A",
+    "datetime": "2024-06-01T21:00:00+02:00",
+    "team1": 3,
+    "team2": 4,
+    "status": "finished",
+    "score_team1": 1,
+    "score_team2": 1
+  },
+  {
+    "group": "A",
+    "datetime": "2024-06-02T16:00:00+02:00",
+    "team1": 1,
+    "team2": 3,
+    "status": "running",
+    "score_team1": 2,
+    "score_team2": 1
+  },
+  {
+    "group": "A",
+    "datetime": "2024-06-02T21:00:00+02:00",
+    "team1": 2,
+    "team2": 4,
+    "status": "pending",
+    "score_team1": null,
+    "score_team2": null
+  },
+  {
+    "group": "B",
+    "datetime": "2024-06-03T16:00:00+02:00",
+    "team1": 5,
+    "team2": 6,
+    "status": "finished",
+    "score_team1": 4,
+    "score_team2": 3
+  },
+  {
+    "group": "B",
+    "datetime": "2024-06-03T21:00:00+02:00",
+    "team1": 7,
+    "team2": 8,
+    "status": "finished",
+    "score_team1": 2,
+    "score_team2": 2
+  },
+  {
+    "group": "B",
+    "datetime": "2024-06-04T16:00:00+02:00",
+    "team1": 5,
+    "team2": 7,
+    "status": "running",
+    "score_team1": 1,
+    "score_team2": 0
+  },
+  {
+    "group": "B",
+    "datetime": "2024-06-04T21:00:00+02:00",
+    "team1": 6,
+    "team2": 8,
+    "status": "pending",
+    "score_team1": null,
+    "score_team2": null
+  },
+  {
+    "group": "C",
+    "datetime": "2024-06-05T16:00:00+02:00",
+    "team1": 9,
+    "team2": 10,
+    "status": "finished",
+    "score_team1": 2,
+    "score_team2": 3
+  },
+  {
+    "group": "C",
+    "datetime": "2024-06-05T21:00:00+02:00",
+    "team1": 11,
+    "team2": 12,
+    "status": "finished",
+    "score_team1": 0,
+    "score_team2": 1
+  },
+  {
+    "group": "C",
+    "datetime": "2024-06-06T16:00:00+02:00",
+    "team1": 9,
+    "team2": 11,
+    "status": "running",
+    "score_team1": 2,
+    "score_team2": 2
+  },
+  {
+    "group": "C",
+    "datetime": "2024-06-06T21:00:00+02:00",
+    "team1": 10,
+    "team2": 12,
+    "status": "pending",
+    "score_team1": null,
+    "score_team2": null
+  },
+  {
+    "group": "D",
+    "datetime": "2024-06-07T16:00:00+02:00",
+    "team1": 13,
+    "team2": 14,
+    "status": "finished",
+    "score_team1": 1,
+    "score_team2": 0
+  },
+  {
+    "group": "D",
+    "datetime": "2024-06-07T21:00:00+02:00",
+    "team1": 15,
+    "team2": 16,
+    "status": "finished",
+    "score_team1": 2,
+    "score_team2": 2
+  },
+  {
+    "group": "D",
+    "datetime": "2024-06-08T16:00:00+02:00",
+    "team1": 13,
+    "team2": 15,
+    "status": "running",
+    "score_team1": 0,
+    "score_team2": 1
+  },
+  {
+    "group": "D",
+    "datetime": "2024-06-08T21:00:00+02:00",
+    "team1": 14,
+    "team2": 16,
+    "status": "pending",
+    "score_team1": null,
+    "score_team2": null
+  },
+  {
+    "group": "E",
+    "datetime": "2024-06-09T16:00:00+02:00",
+    "team1": 17,
+    "team2": 18,
+    "status": "finished",
+    "score_team1": 1,
+    "score_team2": 1
+  },
+  {
+    "group": "E",
+    "datetime": "2024-06-09T21:00:00+02:00",
+    "team1": 19,
+    "team2": 20,
+    "status": "finished",
+    "score_team1": 3,
+    "score_team2": 1
+  },
+  {
+    "group": "E",
+    "datetime": "2024-06-10T16:00:00+02:00",
+    "team1": 17,
+    "team2": 19,
+    "status": "running",
+    "score_team1": 2,
+    "score_team2": 2
+  },
+  {
+    "group": "E",
+    "datetime": "2024-06-10T21:00:00+02:00",
+    "team1": 18,
+    "team2": 20,
+    "status": "pending",
+    "score_team1": null,
+    "score_team2": null
+  },
+  {
+    "group": "F",
+    "datetime": "2024-06-11T16:00:00+02:00",
+    "team1": 21,
+    "team2": 22,
+    "status": "finished",
+    "score_team1": 2,
+    "score_team2": 3
+  },
+  {
+    "group": "F",
+    "datetime": "2024-06-11T21:00:00+02:00",
+    "team1": 23,
+    "team2": 24,
+    "status": "finished",
+    "score_team1": 1,
+    "score_team2": 2
+  },
+  {
+    "group": "F",
+    "datetime": "2024-06-12T16:00:00+02:00",
+    "team1": 21,
+    "team2": 23,
+    "status": "running",
+    "score_team1": 1,
+    "score_team2": 0
+  },
+  {
+    "group": "F",
+    "datetime": "2024-06-12T21:00:00+02:00",
+    "team1": 22,
+    "team2": 24,
+    "status": "pending",
+    "score_team1": null,
+    "score_team2": null
+  }
+]
+  }
+  
