@@ -39,6 +39,7 @@ interface Team {
 function App() {
   const [teams,setTeams]= useState([])
   const [games,setGames]= useState([])
+  const POLLING_INTERVAL = 2000
 
   const gameData: MatchDetails={
     team1: "Deutschland",
@@ -52,6 +53,8 @@ function App() {
   const date= new Date("2024.06.24 18:30")
   
   useEffect( () =>{
+   
+        const intervalId = setInterval(() => {
       console.log("moep");
       fetch(api+ "/teams")
         .then(b => b.json())
@@ -60,7 +63,12 @@ function App() {
       fetch(api+ "/games")
         .then(b => b.json())
         .then(data => setGames(data));
-
+        }, 
+        
+        
+      POLLING_INTERVAL);
+    
+        return () => clearInterval(intervalId);
   }, [] )
 
 
