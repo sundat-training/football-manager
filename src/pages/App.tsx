@@ -61,10 +61,9 @@ function App() {
         .then(b => b.json())
         .then(data => setGames(data));
 
-  },[]
+  }, [] )
 
 
-  )
   function joinTeams(g : Game, teams : Team[]){
       const team1 = teams.filter(t => t.id == g.team1)[0].name
       const team2 = teams.filter(t => t.id == g.team2)[0].name
