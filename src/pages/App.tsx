@@ -1,6 +1,7 @@
 import './App.css'
 import { GamePanel, MatchDetails } from '../components/GamePanel'
 import { useEffect, useState } from 'react';
+import { GamePlaceholder } from '../components/GamePlaceholder';
  
 const api = "http://localhost:3000"
 
@@ -87,14 +88,27 @@ function App() {
       <div>#teams: {teams.length}</div>
       <div>#games: {games.length}</div>
     </div>
-    <div
-    className='mt-4'
-    >
+    
+      {
+        (teams.length != 0) &&
+        <div
+          className=' flex flex-col space-y-4 mt-4'
+        >
 
-      {actGame 
-      ? <GamePanel matchDetails={joinTeams(actGame,teams)} date={actGame.datetime} setGame={_ => console.log("nope") }/> 
-      : <GamePlaceholder dataExists={teams.length != 0 }/> }
-    </div>
+          {actGame
+            ? <GamePanel matchDetails={joinTeams(actGame, teams)} date={actGame.datetime} setGame={_ => console.log("nope")} />
+            : <GamePlaceholder  />}
+
+          <button
+          className='disabled:text-slate-200 disabled:border-0 '
+          disabled={actGame==undefined }
+          onClick={() => console.log("score clicked")}
+          >
+            SCORE
+            </button> 
+        </div>
+      }
+    
      <div
      className='mt-6  grid grid-cols-2 gap-2'
      >
@@ -106,18 +120,6 @@ function App() {
 
      </div> 
     </>
-  )
-}
-
-function GamePlaceholder({dataExists}:{dataExists: boolean}){
-  return (
-    
-      (dataExists) 
-      ? <div className='h-[120px] border flex items-center justify-center shadow'>
-          <h2>Wählen sie ihr aktuelles Spiel</h2>
-        </div>
-      : <></>
-    
   )
 }
 
