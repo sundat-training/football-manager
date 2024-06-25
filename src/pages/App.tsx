@@ -91,9 +91,9 @@ function App() {
     className='mt-4'
     >
 
-      {actGame  
+      {actGame 
       ? <GamePanel matchDetails={joinTeams(actGame,teams)} date={actGame.datetime} setGame={_ => console.log("nope") }/> 
-      : <></> }
+      : <GamePlaceholder dataExists={teams.length != 0 }/> }
     </div>
      <div
      className='mt-6  grid grid-cols-2 gap-2'
@@ -109,6 +109,17 @@ function App() {
   )
 }
 
+function GamePlaceholder({dataExists}:{dataExists: boolean}){
+  return (
+    
+      (dataExists) 
+      ? <div className='h-[120px] border flex items-center justify-center shadow'>
+          <h2>Wählen sie ihr aktuelles Spiel</h2>
+        </div>
+      : <></>
+    
+  )
+}
 
 export default App
 
