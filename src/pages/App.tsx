@@ -2,6 +2,7 @@ import './App.css'
 import { GamePanel, MatchDetails } from '../components/GamePanel'
 import { useEffect, useState } from 'react';
 import { GamePlaceholder } from '../components/GamePlaceholder';
+import { ScoreGamePanel } from '../components/ScoreGamePanel';
  
 const api = "http://localhost:3000"
 
@@ -30,7 +31,8 @@ interface Team {
 function App() {
   const [teams,setTeams]= useState([])
   const [games,setGames]= useState<Game[]>([])
-  const [actGame, setActGame] = useState<Game>()
+  const [viewGame, setViewGame] = useState<Game>()
+  const [scoreGame, setScoreGame] = useState<Game>()
 
   const POLLING_INTERVAL = 2000
   
@@ -63,9 +65,21 @@ function App() {
       //   ));
   } , [games])
 
+  function scoreThisGame(id: number){
+    const gg = games.filter(g => g.id == id)[0]
+    if (gg) setScoreGame(gg)
+  }
+  function endGame(id: number){
+    const gg = games.filter(g => g.id == id)[0]
+    if (gg) {
+      setViewGame(gg);
+      setScoreGame(undefined);
+    }
+  }
   function handleChangeGame(id: number){
     const gg = games.filter(g => g.id == id)[0]
-    if (gg) setActGame(gg)
+    if (gg) setViewGame(gg)
+    if (gg) setScoreGame(gg)
   }
   
   function joinTeams(g : Game, teams : Team[]) :MatchDetails{
@@ -82,46 +96,62 @@ function App() {
 
   return (
     <>
-      
-    <h1 className='mb-5'>Fußballmanager</h1>
-     <div>
-      <div>#teams: {teams.length}</div>
-      <div>#games: {games.length}</div>
-    </div>
-    
-      {
-        (teams.length != 0) &&
-        <div
-          className=' flex flex-col space-y-4 mt-4'
-        >
+      <h1 className='mb-5'>Fußballmanager</h1>
+      <div>
+        <div>#teams: {teams.length}</div>
+        <div>#games: {games.length}</div>
+      </div>
 
-          {actGame
-            ? <GamePanel matchDetails={joinTeams(actGame, teams)} date={actGame.datetime} setGame={_ => console.log("nope")} />
-            : <GamePlaceholder  />}
+      {teams.length != 0 && (
+        <div className=' flex flex-col space-y-4 mt-4'>
+          
+          {!viewGame && <GamePlaceholder />}
+          
+          {viewGame && !scoreGame && (
+            <>
+              <GamePanel
+                matchDetails={joinTeams(viewGame, teams)}
+                date={viewGame.datetime}
+                setGame={() => console.log("nope")}
+              />
+              <button
+                className=''
+                onClick={() => scoreThisGame(viewGame.id)}
+              >
+                SCORE
+              </button>
+            </>
+          )}
 
-          <button
-          className='disabled:text-slate-200 disabled:border-0 '
-          disabled={actGame==undefined }
-          onClick={() => console.log("score clicked")}
-          >
-            SCORE
-            </button> 
+          {scoreGame && (
+            <>
+            <ScoreGamePanel />
+              <button
+                className=''
+                onClick={() => endGame(scoreGame.id)}
+              >
+                End Game
+              </button>
+            </>
+            )
+          }
+
         </div>
-      }
-    
-     <div
-     className='mt-6  grid grid-cols-2 gap-2'
-     >
-      {
-        games.map( g =>
-          <GamePanel matchDetails={joinTeams(g,teams)} date={g.datetime} setGame={(id) => handleChangeGame(id) }/>
-        )
-      }
+      )}
 
-     </div> 
+      <div className='mt-6  grid grid-cols-2 gap-2'>
+        {games.map((g) => (
+          <GamePanel
+            matchDetails={joinTeams(g, teams)}
+            date={g.datetime}
+            setGame={(id) => handleChangeGame(id)}
+          />
+        ))}
+      </div>
     </>
-  )
+  );
 }
+
 
 export default App
 
