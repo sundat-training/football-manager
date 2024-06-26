@@ -79,7 +79,6 @@ function App() {
   function handleChangeGame(id: number){
     const gg = games.filter(g => g.id == id)[0]
     if (gg) setViewGame(gg)
-    if (gg) setScoreGame(gg)
   }
   
   function joinTeams(g : Game, teams : Team[]) :MatchDetails{
