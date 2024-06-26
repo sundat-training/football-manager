@@ -1,4 +1,3 @@
-import { MannschaftsPanel } from "./MannschaftsPanel";
 
 export function ScoreGamePanel() {
   return (
