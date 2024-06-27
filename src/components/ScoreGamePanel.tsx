@@ -1,29 +1,19 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { MatchDetails } from "./GamePanel";
 
-type ScoreGameData= MatchDetails &{
+export type ScoreGameData= MatchDetails &{
   yellowCard_team1: number,
   redCard_team1: number,
   yellowCard_team2: number,
   redCard_team2: number
 }
-const testData:ScoreGameData = {
-  id: 1,
-  team1: "Team A",
-  team2: "Team B",
-  flag1: "flag1",
-  flag2: "flag2",
-  score_team1: 0,
-  score_team2: 0,
-  status: "running",
-  yellowCard_team1: 0,
-  redCard_team1: 0,
-  yellowCard_team2: 0,
-  redCard_team2: 0
+
+type ScoreGameProps = {
+  game: ScoreGameData;
 };
 
-export function ScoreGamePanel() {
-  const [scoreData, setScoreData] = useState<ScoreGameData >(testData)
+export function ScoreGamePanel({game} : ScoreGameProps) {
+  const [scoreData, setScoreData] = useState<ScoreGameData >(game)
 
   function inc(key: keyof ScoreGameData) {
     setScoreData(d => 

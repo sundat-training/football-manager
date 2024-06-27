@@ -2,7 +2,7 @@ import './App.css'
 import { GamePanel, MatchDetails } from '../components/GamePanel'
 import { useEffect, useState } from 'react';
 import { GamePlaceholder } from '../components/GamePlaceholder';
-import { ScoreGamePanel } from '../components/ScoreGamePanel';
+import { ScoreGameData, ScoreGamePanel } from '../components/ScoreGamePanel';
  
 const api = "http://localhost:3000"
 
@@ -10,7 +10,7 @@ type Group = 'A' | 'B' | 'C' | 'D' | 'E' | 'F';
 
 type GameStatus = 'finished' | 'running' | 'pending';
 
-interface Game {
+export interface Game {
   id: number;
   group: Group;
   datetime: Date; // ISO 8601 format with timezone
@@ -93,6 +93,17 @@ function App() {
       return {...g, team1,team2,flag1,flag2} 
   }
 
+  function enrichScoreGame(scoreGame: Game, teams: Team[]): ScoreGameData {
+    const matchDetails = joinTeams(scoreGame, teams);
+    return {
+    ...matchDetails,
+    yellowCard_team1: 0,
+    redCard_team1: 0,
+    yellowCard_team2: 0,
+    redCard_team2: 0
+
+    } ;
+  }
   return (
     <>
       <h1 className='mb-5'>Fußballmanager</h1>
@@ -124,7 +135,7 @@ function App() {
 
           {scoreGame && (
             <>
-            <ScoreGamePanel />
+            <ScoreGamePanel game={enrichScoreGame(scoreGame,teams)}/>
               <button
                 className=''
                 onClick={() => endGame(scoreGame.id)}
