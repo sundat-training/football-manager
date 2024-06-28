@@ -3,8 +3,8 @@ import { GamePanel, MatchDetails } from '../components/GamePanel'
 import { useEffect, useState } from 'react';
 import { GamePlaceholder } from '../components/GamePlaceholder';
 import { ScoreGameData, ScoreGamePanel } from '../components/ScoreGamePanel';
+import { fetchGamesData, fetchTeamsData, patchGameStatus } from '../tools/api';
  
-const api = "http://localhost:3000"
 
 type Group = 'A' | 'B' | 'C' | 'D' | 'E' | 'F';
 
@@ -41,15 +41,11 @@ function App() {
    
     const intervalId = setInterval(() => {
       console.log("moep");
-      fetch(api + "/teams")
-        .then(b => b.json())
-        .then(data => setTeams(data));
+      fetchTeamsData()
+      .then(data => setTeams(data))
 
-      fetch(api + "/games")
-        .then(b => b.json())
-        //@ts-ignore
-        .then(d => d.map(g => ({...g, dateTime:new Date(g.dateTime)})))
-        .then(data => setGames(data)
+      fetchGamesData()
+      .then(data => setGames(data)
                       
                       );
         
@@ -78,15 +74,7 @@ function App() {
       setScoreGame(undefined);
     }
     const pg:Partial<Game> = {id, status: 'finished'}
-    fetch(api + "/games/" + id, {
-      method: 'PATCH',
-      headers: {
-          'Content-Type':'application/json'
-      },
-      body: JSON.stringify(pg),
-      })
-      .then(b => b.json())
-      .then(data => console.log("endgame",data));
+    patchGameStatus(pg)
   }
   function handleChangeGame(id: number){
     const gg = games.filter(g => g.id == id)[0]
