@@ -1,5 +1,6 @@
 import {  useState } from "react";
 import { MatchDetails } from "./GamePanel";
+import { Game } from "../pages/App";
 
 export type ScoreGameData= MatchDetails &{
   yellowCard_team1: number,
@@ -15,9 +16,20 @@ type ScoreGameProps = {
 export function ScoreGamePanel({game} : ScoreGameProps) {
   const [scoreData, setScoreData] = useState<ScoreGameData >(game)
 
-  function inc(key: keyof ScoreGameData) {
-    setScoreData(d => 
-      ({...d, [key]: d[key] as number + 1}))
+ function inc(key: keyof ScoreGameData) {
+    const sd={...scoreData, [key]: scoreData[key] as number + 1}
+    setScoreData(sd)
+
+    if (key === "score_team1" || key === "score_team2") {
+      const patch_data:Partial<Game> = convertToGoalPartialGame(sd)
+      fetch(`http://localHost:3000/games/`+patch_data.id, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(patch_data),
+        })
+    }  
   }
   function dec(key: keyof ScoreGameData) {
     if (scoreData[key] === 0) return;
@@ -94,4 +106,10 @@ type ScoreTeamProps = {
           </div>
         );
       }
-
+      function convertToGoalPartialGame(scoreData: ScoreGameData): Partial<Game> {
+        return {
+          id: scoreData.id,
+          score_team1: scoreData.score_team1,
+          score_team2: scoreData.score_team2,
+        };
+      }
