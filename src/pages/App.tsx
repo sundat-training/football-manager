@@ -71,10 +71,22 @@ function App() {
   }
   function endGame(id: number){
     const gg = games.filter(g => g.id == id)[0]
+
     if (gg) {
-      setViewGame(gg);
+      const ggg:Game = {...gg, status: 'finished'}
+      setViewGame(ggg);
       setScoreGame(undefined);
     }
+    const pg:Partial<Game> = {id, status: 'finished'}
+    fetch(api + "/games/" + id, {
+      method: 'PATCH',
+      headers: {
+          'Content-Type':'application/json'
+      },
+      body: JSON.stringify(pg),
+      })
+      .then(b => b.json())
+      .then(data => console.log("endgame",data));
   }
   function handleChangeGame(id: number){
     const gg = games.filter(g => g.id == id)[0]
@@ -125,7 +137,8 @@ function App() {
                 setGame={() => console.log("nope")}
               />
               <button
-                className=''
+                className='disabled:opacity-50 disabled:border-none'
+                disabled={viewGame.status === 'finished'}
                 onClick={() => scoreThisGame(viewGame.id)}
               >
                 SCORE
